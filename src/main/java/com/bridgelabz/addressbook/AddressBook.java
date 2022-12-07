@@ -13,7 +13,7 @@ public class AddressBook {
 	private long phoneNumber;
 	private String email;
 	static List <AddressBook> list = new ArrayList<>();
-	Scanner scan = new Scanner(System.in);
+	static Scanner scan = new Scanner(System.in);
 	AddressBook(){}
 
 	public AddressBook(String first, String last, String add, String city, String state,
@@ -50,7 +50,6 @@ public class AddressBook {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 	public String getCity() {
 		return city;
 	}
@@ -208,9 +207,14 @@ public class AddressBook {
 
 	public static void main(String[] args) {
 		AddressBook object = new AddressBook();
-		object.add();
+		String addAgain = "Yes";
+		while(addAgain.equals("Yes")){
+		   object.add();
+		   System.out.println("Enter type Yes to add another contact:");
+		   addAgain = scan.next();
+		}
 		object.editData();
 		DisplayContacts();
-		object.deleteData();
+	    object.deleteData();
 	}
 }
