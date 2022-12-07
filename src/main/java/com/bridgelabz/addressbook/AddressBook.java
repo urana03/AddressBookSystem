@@ -186,6 +186,19 @@ public class AddressBook {
 
 	}
 	
+	public void deleteData() {
+		System.out.println("\nEnter first name to delete : ");
+		String name = scan.next();
+		for(int i = 0 ; i < list.size() ; i++) {
+			if(list.get(i).getFirstName().equals(name)) {
+				list.removeAll(list);
+				System.out.println("Deleted Successfully");
+			}
+			else
+				System.out.println("not deleted");
+		}
+	}
+	
 	public static void DisplayContacts() {
 		System.out.println("\nContacts in Address Book:");
 		for(int i = 0 ; i < list.size() ; i++) {
@@ -198,5 +211,6 @@ public class AddressBook {
 		object.add();
 		object.editData();
 		DisplayContacts();
+		object.deleteData();
 	}
 }
